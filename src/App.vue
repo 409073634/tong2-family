@@ -5,9 +5,9 @@
     <my-nav></my-nav>
     <router-view class="main_content"></router-view>
     <!-- 遮罩层 -->
-    <my-mask v-if="canlogin"></my-mask>
+    <my-mask v-if="islogin"></my-mask>
     <!-- 登录界面 -->
-    <my-login v-if="canlogin"></my-login>
+    <my-login v-if="islogin"></my-login>
     <my-foot></my-foot>
 </div>
 </template>
@@ -18,6 +18,7 @@
   import myMask from 'components/mask';
   import myLogin from 'components/login';
   import myFoot from 'components/foot';
+  import { mapState } from 'vuex';
 
   export default {
     name: 'app',
@@ -29,14 +30,12 @@
       myFoot
     },
     data() {
-      return {
-        canlogin: false
-      };
+      return {}
     },
     computed: {
-      canlogin() {
-        return this.$store.state.login.islogin;
-      }
+      islogin() {
+        return this.$store.state.login.islogin 
+      },
     }
     // methods: {
     //   toLogin(islogin) {

@@ -24,8 +24,6 @@
   export default {
     data() {
       return {
-        user: {},
-        hasLogin: this.$store.state.user.hasLogin
       };
     },
     computed: { 

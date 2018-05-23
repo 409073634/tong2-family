@@ -1,11 +1,21 @@
 <template>
-    <div id="mask"></div>
+    <div id="mask" @click="fromLogin"></div>
 </template>
 
 <script>
+    import { mapActions } from 'vuex';
     export default {
       mounted() {
         this.$el.style.height = document.body.scrollHeight + 'px';
+      },
+      methods: {
+        ...mapActions(['disableLogin']),
+        fromLogin() {
+          // this.islogin = true;
+          // // 给父组件传递信息
+          // this.$parent.$emit('to-login', { text: this.islogin})  
+          this.disableLogin();
+        },
       }
     }
 </script>
